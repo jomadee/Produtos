@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* Aplicativo de Produtos para Plugin (CMS)
+* Gerenciador de produtos | lliure (4.3.x - 4.4.x)
 *
-* @versão 2.1.0
+* @versão 2.2.2
 * @Desenvolvedor Jeison Frasson <contato@newsmade.com.br>
 * @Cooperador Rodrigo Dechen <rodrigo@grapestudio.com.br>
 * @entre em contato com o desenvolvedor <contato@newsmade.com.br> http://www.newsmade.com.br/
@@ -11,7 +11,7 @@
 *
 */
 header("Content-Type: text/html; charset=ISO-8859-1", true);
-require_once("../../includes/conection.php"); 
+require_once("../../etc/bdconf.php"); 
 
 $idCat = (isset($_GET['c'])?$_GET['c']:'0');
 
