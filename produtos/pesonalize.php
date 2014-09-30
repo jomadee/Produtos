@@ -1,12 +1,12 @@
 <?php
 /**
 *
-* Gerenciador de produtos | lliure (4.3.x - 4.4.x)
+* Gerenciador de produtos | lliure 4.10.x
 *
-* @versão 2.2.2
-* @Desenvolvedor Jeison Frasson <contato@newsmade.com.br>
-* @Cooperador Rodrigo Dechen <rodrigo@grapestudio.com.br>
-* @entre em contato com o desenvolvedor <contato@newsmade.com.br> http://www.newsmade.com.br/
+* @versão 3.0
+* @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
+* @Cooperador Rodrigo Dechen <mestri.rodrigo@gmail.com>
+* @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
 * @licença http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
@@ -31,11 +31,11 @@ case "write";
 	
 	switch ($retorno){
 		case 'salvar':
-			$retorno = '../../index.php?plugin=produtos&cat='.$_GET['id'];
+			$retorno = '../../index.php?app=produtos&cat='.$_GET['id'];
 		break;
 		
 		case 'salvar-editar':
-			$retorno = '../../index.php?plugin=produtos&p=pesonalize&cat='.$_GET['id'];
+			$retorno = '../../index.php?app=produtos&p=pesonalize&cat='.$_GET['id'];
 		break;		
 	}
 	
@@ -44,14 +44,14 @@ case "write";
 break;
 
 default:
-	$consulta = 'select * from '.$pluginTable.' where id = "'.$_GET['cat'].'" limit 1';
+	$consulta = 'select * from '.$llAppTable.' where id = "'.$_GET['cat'].'" limit 1';
 	$dados = mysql_fetch_assoc(mysql_query($consulta));
 	
 	extract($dados);
 	?>
 	
 	<div class="boxCenter">
-		<form method="post" action="<?php echo $pluginPasta.'pesonalize.php?ac=write&amp;id='.$_GET['cat']?>" class="form" id="formprod"  enctype="multipart/form-data">
+		<form method="post" action="<?php echo $_ll['app']['pasta'].'pesonalize.php?ac=write&amp;id='.$_GET['cat']?>" class="form" id="formprod"  enctype="multipart/form-data">
 			<fieldset>
 				<div>
 					<label>Nome</label>
@@ -62,7 +62,7 @@ default:
 				<div>
 					<label>Descrição da categoria</label>
 					<textarea class="normal"  name="descricao"><?php echo $descricao?></textarea>
-					<span class="ex">Descreve seu produto. <strong>Campo obrigatorio</strong></span>
+					<span class="ex">Descreva seu produto. <strong>Campo obrigatorio</strong></span>
 				</div>
 				
 				<?php

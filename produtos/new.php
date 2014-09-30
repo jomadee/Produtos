@@ -1,12 +1,12 @@
 <?php
 /**
 *
-* Gerenciador de produtos | lliure (4.3.x - 4.4.x)
+* Gerenciador de produtos | lliure 4.10.x
 *
-* @versão 2.2.2
-* @Desenvolvedor Jeison Frasson <contato@newsmade.com.br>
-* @Cooperador Rodrigo Dechen <rodrigo@grapestudio.com.br>
-* @entre em contato com o desenvolvedor <contato@newsmade.com.br> http://www.newsmade.com.br/
+* @versão 3.0
+* @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
+* @Cooperador Rodrigo Dechen <mestri.rodrigo@gmail.com>
+* @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
 * @licença http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
@@ -34,6 +34,3 @@ if($_GET['n'] == 'cat'){
 }
 $query = mysql_query($executa);
 ?>
-<script type="text/javascript">
-	jfnav_start();
-</script>

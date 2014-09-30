@@ -1,10 +1,10 @@
 /**
 *
-* Gerenciador de produtos | lliure (4.3.x - 4.4.x)
+* Gerenciador de produtos | lliure 4.7
 *
-* @versão 2.2.2
-* @Desenvolvedor Jeison Frasson <contato@newsmade.com.br>
-* @entre em contato com o desenvolvedor <contato@newsmade.com.br> http://www.newsmade.com.br/
+* @Versão 3.0.0
+* @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
+* @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
 * @licença http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
@@ -31,8 +31,63 @@ z-index: 1000;
 float: left;
 }
 
-/********************************************** MENU LATERAL
-*/
+/****************************	Abas				****/
+.abas {
+	float: left;
+	width: 100%;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #555;
+	font-size: 0.916em;
+	}
+
+	.abas .item{
+		background: #999;
+		float: left;
+		margin-left: 5px;
+		padding: 6px 10px 5px;
+		color: #eee;
+		border-radius: 3px 3px 0 0;
+		}
+
+	.abas .item.ativo{
+		padding: 6px 10px;
+		background: #555;
+		font-weight: bold;
+		}
+
+/****************************	Alert				****/
+.prd_no{
+	padding: 15px;
+	padding-left: 70px;	
+	border-radius: 7px;
+	border: 1px solid #e5e5e5;
+	font-size: 1.2em;
+	float: left;
+	background: url('img/alert.png') 19px center #f5f5f5 no-repeat;
+	}
+
+	.prd_no span.frase{
+		width: 100%;
+		float: left;
+		margin-bottom: 7px;
+		color: #777;
+		}
+
+		.prd_no a{
+			background: #9f9f9f;
+			padding: 6px 10px;
+			float: left;
+			color: #eee;
+			border-radius: 3px;
+			margin-right: 5px;
+			font-size: 0.7em;
+			}
+
+		.prd_no a:hover{
+			background: #777;
+			}
+
+/********************************************** MENU LATERAL */
 .menuLateral{
 	position: absolute;
 	left: 0;

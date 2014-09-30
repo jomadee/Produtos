@@ -1,18 +1,17 @@
 <?php
 /**
 *
-* Gerenciador de produtos | lliure (4.3.x - 4.4.x)
+* Gerenciador de produtos | lliure 4.10.x
 *
-* @versão 2.2.2
-* @Desenvolvedor Jeison Frasson <contato@newsmade.com.br>
-* @Cooperador Rodrigo Dechen <rodrigo@grapestudio.com.br>
-* @entre em contato com o desenvolvedor <contato@newsmade.com.br> http://www.newsmade.com.br/
+* @versão 3.0
+* @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
+* @Cooperador Rodrigo Dechen <mestri.rodrigo@gmail.com>
+* @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
 * @licença http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
-$pluginHome = "?plugin=produtos";
-$pluginPasta = "plugins/produtos/";
-$pluginTable = PREFIXO."produtos";
+
+$llAppTable = PREFIXO."produtos";
 
 
 $botoes = array(
@@ -25,9 +24,9 @@ echo app_bar('Produtos', $botoes);
 <div class="lojaInterno">
 <?php
 	if(isset($_GET['p'])){
-		require_once($pluginPasta.$_GET['p'].".php");
+		require_once($_ll['app']['pasta'].$_GET['p'].".php");
 	}else{
-		require_once($pluginPasta."produtos.php");
+		require_once($_ll['app']['pasta']."produtos.php");
 	}
 	?>
 </div>
