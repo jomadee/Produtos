@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.7
+-- version 3.3.9.2
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: Dez 07, 2011 as 11:19 AM
--- Versão do Servidor: 5.0.51
--- Versão do PHP: 5.2.6
+-- Tempo de Geração: Mar 11, 2012 as 12:16 AM
+-- Versão do Servidor: 5.5.10
+-- Versão do PHP: 5.3.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Banco de Dados: `azoup`
+-- Banco de Dados: `speedinfo`
 --
 
 -- --------------------------------------------------------
@@ -26,16 +26,18 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE `plugin_produtos` (
-  `id` int(11) NOT NULL auto_increment,
-  `idCat` int(11) default '0',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idCat` int(11) DEFAULT '0',
   `nome` varchar(200) NOT NULL,
-  `foto` varchar(200) default NULL,
+  `foto` varchar(200) DEFAULT NULL,
   `descricao` text NOT NULL,
-  `destaque` enum('0','1') default '0',
-  `status` enum('0','1') default '1',
+  `destaque` enum('0','1') DEFAULT '0',
+  `status` enum('0','1') DEFAULT '1',
   `tipo` enum('1','2') NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+  `permicao` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idCat` (`idCat`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -44,9 +46,9 @@ CREATE TABLE `plugin_produtos` (
 --
 
 CREATE TABLE `plugin_produtos_fotos` (
-  `id` int(11) NOT NULL auto_increment,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idProd` int(11) NOT NULL,
   `foto` varchar(200) NOT NULL,
-  `descricao` varchar(250) default NULL,
-  PRIMARY KEY  (`id`)
+  `descricao` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;

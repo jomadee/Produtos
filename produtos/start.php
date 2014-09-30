@@ -3,8 +3,9 @@
 *
 * Aplicativo de Produtos para Plugin (CMS)
 *
-* @versão 2.0.9
+* @versão 2.1.0
 * @Desenvolvedor Jeison Frasson <contato@newsmade.com.br>
+* @Cooperador Rodrigo Dechen <rodrigo@grapestudio.com.br>
 * @entre em contato com o desenvolvedor <contato@newsmade.com.br> http://www.newsmade.com.br/
 * @licença http://opensource.org/licenses/gpl-license.php GNU Public License
 *

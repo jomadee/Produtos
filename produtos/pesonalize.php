@@ -3,77 +3,74 @@
 *
 * Aplicativo de Produtos para Plugin (CMS)
 *
-* @versão 2.0.9
+* @versão 2.1.0
 * @Desenvolvedor Jeison Frasson <contato@newsmade.com.br>
+* @Cooperador Rodrigo Dechen <rodrigo@grapestudio.com.br>
 * @entre em contato com o desenvolvedor <contato@newsmade.com.br> http://www.newsmade.com.br/
 * @licença http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
-
-$id = $_GET['cat'];
-$case = (isset($_GET['case'])?$_GET['case']: "");
+switch(isset($_GET['ac'])? $_GET['ac'] : ''){
+case "write";
+	
+	require_once("../../includes/conection.php"); 
+	require_once("../../includes/jf.funcoes.php"); 
+	
+	$retorno = jf_form_actions('salvar', 'salvar-editar');
+	
+	$_POST['permicao'] = preg_replace("/[^ 10,]/", "", $_POST['permicao']);	;
+	
+	if(!empty($_FILES['foto']['name'])){
+		$arquivo = $_FILES['foto'];
 		
+		$imagemNome = explode('.', $arquivo['name']);
+		$extenc = array_pop($imagemNome);
 
-switch($case){
-case "save";
-case "saveedit":
-	plg_historic('return');
-	if(!empty($_POST)){
+		$imagemNome = jf_urlformat(join(".", $imagemNome)).'_'.substr(md5(time()), rand(0, 15)+0, 8).'.'.$extenc;	
 		
-		if(!empty($_FILES['foto']['name'])){
-			$arquivo = $_FILES['foto'];
-			
-			$imagemNome = explode('.', $arquivo['name']);
-			$extenc = array_pop($imagemNome);
-			$imagemNome = join(".", array_reverse($imagemNome));
-			$imagemNome = jf_urlformat($imagemNome);
-			$imagemNome = $imagemNome.'_'.substr(uniqid(md5(time())), 0, 8).'.'.$extenc;	
-			
-			$dir = 	"../uploads/produtos/";	
-			
-			if(isset($_POST['fotoant'])){
-				unlink($dir.$_POST['fotoant']);
-			}			
-			
-			$path =  $dir.$imagemNome;
-			
-			move_uploaded_file($arquivo["tmp_name"], $path);
-			$_POST['foto'] = $imagemNome;
-		} else{
-			unset($_POST['foto']);
-			
-		}
+		$dir = 	"../uploads/produtos/";	
 		
 		if(isset($_POST['fotoant'])){
+			unlink($dir.$_POST['fotoant']);
 			unset($_POST['fotoant']);
 		}
 		
-		$alter['id']	= $id;
-				
-		jf_update($pluginTable, $_POST, $alter);
-		?><img src="error.jpg" onerror="mLaviso('Alteração realizada com sucesso!', '2')" class="imge" alt="" /><?php
+		move_uploaded_file($arquivo["tmp_name"], $dir.$imagemNome);
+		$_POST['foto'] = $imagemNome;
+	} else{
+		unset($_POST['foto'], $_POST['fotoant']);
 	}
-if($case == 'save'){
-	echo loadPage($backReal, 1);
-	break;
-}
+
+	jf_update(PREFIXO.'produtos', $_POST, array('id' => $_GET['id']));
+	
+	$_SESSION['aviso'] = array('Propriedades alteradas com sucesso!', 1);
+	
+	switch ($retorno){
+		case 'salvar':
+			$retorno = '../../index.php?plugin=produtos&cat='.$_GET['id'];
+		break;
+		
+		case 'salvar-editar':
+			$retorno = '../../index.php?plugin=produtos&p=pesonalize&cat='.$_GET['id'];
+		break;		
+	}
+	
+	header('location: '.$retorno);
+
+break;
 
 default:
-	$consulta = "select * from ".$pluginTable." where id like ".$id;
-	$query = mysql_query($consulta);
-
-	$dados = mysql_fetch_array($query);
+	$consulta = 'select * from '.$pluginTable.' where id = "'.$_GET['cat'].'" limit 1';
+	$dados = mysql_fetch_assoc(mysql_query($consulta));
 	
 	extract($dados);
-	
-	$endComun = $pluginHome."&amp;p=pesonalize&cat=".$id;
 	?>
 	
 	<div class="boxCenter">
-		<form method="post" class="form" id="formprod"  enctype="multipart/form-data">
+		<form method="post" action="<?php echo $pluginPasta.'pesonalize.php?ac=write&amp;id='.$_GET['cat']?>" class="form" id="formprod"  enctype="multipart/form-data">
 			<div>
 				<label>Nome</label>
-				<input type="text" maxlength="50" value="<?=$nome?>" name="nome" />
+				<input type="text" value="<?=$nome?>" name="nome" />
 				<span class="ex">Este é apenas para identificação no painel, máximo de 15 caracteres. <strong>Campo obrigatorio</strong></span>
 			</div>				
 						
@@ -83,6 +80,17 @@ default:
 				<span class="ex">Descreve seu produto. <strong>Campo obrigatorio</strong></span>
 			</div>
 			
+			<?php
+			if($DadosLogado['tipo'] == 1){
+				?>
+				<div>
+					<label>Permição da pasta</label>
+					<input type="text" value="<?=$permicao?>" name="permicao" />
+					<span class="ex">Este é apenas para identificação no painel, máximo de 15 caracteres. <strong>Campo obrigatorio</strong></span>
+				</div>	
+				<?php
+			}
+			?>
 			
 			<div>
 				<label>Foto da categoria</label>
@@ -104,8 +112,8 @@ default:
 			</div>	
 
 			<span class="botao"><a class="link" href="<?=$backReal?>" title="voltar">Voltar</a></span>
-			<span class="botao"><button  class="link" onclick="sForm('formprod', '<?=$endComun?>&case=save')">Salvar</button></span>
-			<span class="botao"><button  class="link" onclick="sForm('formprod', '<?=$endComun?>&case=saveedit')">Salvar e continuar editando</button></span>
+			<span class="botao"><button type="submit" name="salvar">Salvar</button></span>
+			<span class="botao"><button type="submit" name="salvar-editar">Salvar e continuar editando</button></span>
 	
 		</form>
 	</div>
