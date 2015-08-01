@@ -3,7 +3,7 @@
 *
 * Gerenciador de produtos | lliure 6.x
 *
-* @versão 4.0
+* @versão 4.1
 * @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
 * @Cooperador Rodrigo Dechen <mestri.rodrigo@gmail.com>
 * @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
@@ -27,12 +27,12 @@ case 'new':
 			$permicao = 'NULL';
 		}
 
-		$nome = "Nova categoria";
-		$executa = "INSERT INTO ".PREFIXO."produtos (nome, tipo, idCat, permicao) values ('".$nome."', '1', '".$idCat."', ".$permicao.")";
-	} else{
-		$nome = "Novo produto";		
-		$executa = "INSERT INTO ".PREFIXO."produtos (nome, tipo, idCat) values ('".$nome."' , '2', '".$idCat."')";
+		$data = array('nome' => 'Nova categoria', 'tipo' => 1, 'idCat' => $idCat, 'permicao' => $permicao);
+	} else{		
+		$data = array('nome' => 'Novo produto', 'tipo' => 2, 'idCat' => $idCat);
 	}
-	$query = mysql_query($executa);
+
+	
+	jf_insert(PREFIXO.'produtos', $data);
 	break;
 }
