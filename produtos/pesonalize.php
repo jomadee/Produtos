@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* Gerenciador de produtos | lliure 4.10.x
+* Gerenciador de produtos | lliure 6.x
 *
-* @versão 3.0
+* @versão 4.0
 * @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
 * @Cooperador Rodrigo Dechen <mestri.rodrigo@gmail.com>
 * @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
@@ -85,10 +85,14 @@ default:
 				$file->form();
 				?>
 			</fieldset>
+
 			
-			<span class="botao"><a class="link" href="<?php echo $backReal?>" title="voltar">Voltar</a></span>
-			<span class="botao"><button type="submit" name="salvar">Salvar</button></span>
-			<span class="botao"><button type="submit" name="salvar-editar">Salvar e continuar editando</button></span>
+			
+			<div class="botoes">
+				<a class="link" href="<?php echo $backReal?>" title="voltar">Voltar</a>		
+				<button type="submit" name="salvar" title="Salva e volta para lsitagem de produtos" class="confirm">Salvar</button>
+				<button  type="submit" name="salvar-editar" title="Salva e continua nesta mesma tela">Salvar e continuar editando</button>
+			</div>
 		</form>
 	</div>
 	<?php

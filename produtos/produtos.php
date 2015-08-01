@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* Gerenciador de produtos | lliure 4.10.x
+* Gerenciador de produtos | lliure 6.x
 *
-* @versão 3.0
+* @versão 4.0
 * @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
 * @Cooperador Rodrigo Dechen <mestri.rodrigo@gmail.com>
 * @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
@@ -49,10 +49,10 @@ if(isset($_GET['cat'])){
 				echo '<li><a href="'.$llAppHome.'&amp;p=pesonalize&cat='.$_GET['cat'].'"><img src="'.$_ll['tema']['icones'].'brush.png" alt=""/>Personalizar</a></li>';
 			
 			if($permicao == '11' or $permicao == '10')
-				echo '<li><a href="'.$_ll['app']['pasta'].'new.php?n=cat'.$cat.'" class="criar" rel="Nova categoria criada com sucesso"><img src="'.$_ll['tema']['icones'].'cube.png" alt=""/>Cadastrar categoria</a>  </li>';
+				echo '<li><a href="'.$_ll['app']['sen_html'].'&ac=new&n=cat'.$cat.'" class="criar" rel="Nova categoria criada com sucesso"><img src="'.$_ll['tema']['icones'].'cube.png" alt=""/>Cadastrar categoria</a>  </li>';
 				
 			if($permicao == '11' or $permicao == '01')
-				echo '<li><a href="'.$_ll['app']['pasta'].'new.php?n'.$cat.'" class="criar" rel="Novo produto criado com sucesso"><img src="'.$_ll['app']['pasta'].'img/product.png" alt=""/>Cadastrar produto</a></li>';
+				echo '<li><a href="'.$_ll['app']['sen_html'].'&ac=new&n'.$cat.'" class="criar" rel="Novo produto criado com sucesso"><img src="'.$_ll['app']['pasta'].'img/product.png" alt=""/>Cadastrar produto</a></li>';
 			?>
 		</ul>
 	</div>

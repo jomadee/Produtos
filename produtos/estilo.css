@@ -1,8 +1,8 @@
 /**
 *
-* Gerenciador de produtos | lliure 4.7
+* Gerenciador de produtos | lliure 6.x
 *
-* @Versão 3.0.0
+* @Versão 4.0
 * @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
 * @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
 * @licença http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -28,8 +28,13 @@ z-index: 1000;
 }
 
 .maxLatLoja{
-float: left;
-}
+	float: left;
+	}
+
+	.maxLatLoja .caminho{
+		display: block;
+		margin-bottom: 10px;
+		}
 
 /****************************	Abas				****/
 .abas {
