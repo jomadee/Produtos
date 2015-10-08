@@ -1,7 +1,7 @@
 <?php
 /**
 *
-* Gerenciador de produtos | lliure 8.x
+* Gerenciador de produtos
 *
 * @versão 5.0
 * @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
