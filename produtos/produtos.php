@@ -46,13 +46,13 @@ if(isset($_GET['cat'])){
 			<li class="top">Opções de produtos</li>
 			<?php 
 			if(isset($_GET['cat']))
-				echo '<li><a href="'.$llAppHome.'&amp;p=pesonalize&cat='.$_GET['cat'].'"><img src="'.$_ll['tema']['icones'].'brush.png" alt=""/>Personalizar</a></li>';
+				echo '<li><a href="'.$llAppHome.'&amp;p=pesonalize&cat='.$_GET['cat'].'"><i class="fa fa-cog"></i>Personalizar</a></li>';
 			
 			if($permicao == '11' or $permicao == '10')
-				echo '<li><a href="'.$_ll['app']['sen_html'].'&ac=new&n=cat'.$cat.'" class="criar" rel="Nova categoria criada com sucesso"><img src="'.$_ll['tema']['icones'].'cube.png" alt=""/>Cadastrar categoria</a>  </li>';
+				echo '<li><a href="'.$_ll['app']['sen_html'].'&ac=new&n=cat'.$cat.'" class="criar" rel="Nova categoria criada com sucesso"><i class="fa fa-cubes"></i> Cadastrar categoria</a>  </li>';
 				
 			if($permicao == '11' or $permicao == '01')
-				echo '<li><a href="'.$_ll['app']['sen_html'].'&ac=new&n'.$cat.'" class="criar" rel="Novo produto criado com sucesso"><img src="'.$_ll['app']['pasta'].'img/product.png" alt=""/>Cadastrar produto</a></li>';
+				echo '<li><a href="'.$_ll['app']['sen_html'].'&ac=new&n'.$cat.'" class="criar" rel="Novo produto criado com sucesso"><i class="fa fa-cube"></i>Cadastrar produto</a></li>';
 			?>
 		</ul>
 	</div>

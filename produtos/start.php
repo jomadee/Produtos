@@ -15,7 +15,7 @@ $llAppTable = PREFIXO."produtos";
 
 
 $botoes = array(
-	array('href' => $backReal, 'img' => $plgIcones.'br_prev.png', 'title' => $backNome)
+	array('href' => $backReal,  'fa' => 'fa-chevron-left', 'title' => $backNome)
 	);
 
 echo app_bar('Produtos', $botoes);
