@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* Gerenciador de produtos | lliure 6.x
+* Gerenciador de produtos 
 *
-* @versão 4.0
+* @versão 5.0
 * @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
 * @Cooperador Rodrigo Dechen <mestri.rodrigo@gmail.com>
 * @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
@@ -75,7 +75,7 @@ default:
 					</div>	
 					<?php
 				}
-
+				
 				$file = new fileup;
 				$file->titulo = 'Foto da categoria';
 				$file->rotulo = 'Selecionar imagem';
@@ -84,6 +84,7 @@ default:
 				$file->extencao = 'png jpg';
 				$file->form();
 				?>
+				<div class="both"></div>
 			</fieldset>
 
 			

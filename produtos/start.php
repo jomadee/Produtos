@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* Gerenciador de produtos | lliure 4.10.x
+* Gerenciador de produtos
 *
-* @versão 3.0
+* @versão 5.0
 * @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
 * @Cooperador Rodrigo Dechen <mestri.rodrigo@gmail.com>
 * @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/

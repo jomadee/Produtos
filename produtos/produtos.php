@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* Gerenciador de produtos | lliure 6.x
+* Gerenciador de produtos | lliure 8.x
 *
-* @versão 4.0
+* @versão 5.0
 * @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
 * @Cooperador Rodrigo Dechen <mestri.rodrigo@gmail.com>
 * @entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
@@ -27,10 +27,10 @@ if(isset($_GET['cat'])){
 		$arraCat[] = array('nome' => $categoria['nome'], 'id' => $categoria['id']);
 		$catHist = $categoria['idCat'];
 	}
-	$caminho = '<span class="caminho"><a href="?app=produtos">Produtos</a>';
+	$caminho = '<span class="caminho"><a href="?app=produtos"><i class="fa fa-home"></i></a>';
 	
 	foreach(array_reverse($arraCat) as $chave => $valor)
-		$caminho .= ' > <a href="?app=produtos&cat='.$valor['id'].'">'.$valor['nome'].'</a>';
+		$caminho .= ' <i class="fa fa-angle-right"></i> <a href="?app=produtos&cat='.$valor['id'].'">'.$valor['nome'].'</a>';
 	
 	$caminho .= '</span>';
 	
@@ -46,13 +46,13 @@ if(isset($_GET['cat'])){
 			<li class="top">Opções de produtos</li>
 			<?php 
 			if(isset($_GET['cat']))
-				echo '<li><a href="'.$llAppHome.'&amp;p=pesonalize&cat='.$_GET['cat'].'"><i class="fa fa-cog"></i>Personalizar</a></li>';
+				echo '<li><a href="'.$llAppHome.'&amp;p=pesonalize&cat='.$_GET['cat'].'"><i class="fa fa-cog"></i> Personalizar</a></li>';
 			
 			if($permicao == '11' or $permicao == '10')
 				echo '<li><a href="'.$_ll['app']['sen_html'].'&ac=new&n=cat'.$cat.'" class="criar" rel="Nova categoria criada com sucesso"><i class="fa fa-cubes"></i> Cadastrar categoria</a>  </li>';
 				
 			if($permicao == '11' or $permicao == '01')
-				echo '<li><a href="'.$_ll['app']['sen_html'].'&ac=new&n'.$cat.'" class="criar" rel="Novo produto criado com sucesso"><i class="fa fa-cube"></i>Cadastrar produto</a></li>';
+				echo '<li><a href="'.$_ll['app']['sen_html'].'&ac=new&n'.$cat.'" class="criar" rel="Novo produto criado com sucesso"><i class="fa fa-cube"></i> Cadastrar produto</a></li>';
 			?>
 		</ul>
 	</div>
