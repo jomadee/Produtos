@@ -68,10 +68,21 @@ default:
 				<?php
 				if(ll_tsecuryt()){
 					?>
-					<div>
-						<label>Permição da pasta</label>
-						<input type="text" value="<?php echo $permicao?>" name="permicao" />
-						<span class="ex">Use 01 para criar produto, 10 para criar pasta, 11 para ambos, 00 para nenhum</span>
+					<div class="column">					
+						<div>	
+							<label>Permição da pasta</label>
+							<input type="text" value="<?php echo $permicao?>" name="permicao" />
+							<span class="ex">Use 01 para criar produto, <br>10 para criar pasta, <br>11 para ambos, <br>00 para nenhum, <br>e separe por virgula para criar uma hierarquia</span>
+						</div>	
+						
+						<div>	
+							<label>Ativar campo valor</label>
+							<select name="conf_valor">
+								<option  value="1">sim</option>
+								<option  value="0" <?php echo ($conf_valor == 0?'selected':'')?>>não</option>
+							</select>
+							<span class="ex">Esse valor será herdado a próximas cateorias</span>
+						</div>						
 					</div>	
 					<?php
 				}

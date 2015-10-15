@@ -12,18 +12,20 @@
 
 -- Dumping structure for table lliure_site.ll_produtos
 DROP TABLE IF EXISTS `ll_produtos`;
-CREATE TABLE IF NOT EXISTS `ll_produtos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idCat` int(11) DEFAULT '0',
-  `nome` varchar(200) NOT NULL,
-  `foto` varchar(200) DEFAULT NULL,
-  `descricao` text NOT NULL,
-  `destaque` enum('0','1') DEFAULT '0',
-  `status` enum('0','1') DEFAULT '1',
-  `tipo` enum('1','2') NOT NULL,
-  `permicao` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idCat` (`idCat`)
+CREATE TABLE `ll_produtos` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`idCat` INT(11) NULL DEFAULT '0',
+	`nome` VARCHAR(200) NOT NULL,
+	`foto` VARCHAR(200) NULL DEFAULT NULL,
+	`descricao` TEXT NOT NULL,
+	`destaque` ENUM('0','1') NULL DEFAULT '0',
+	`status` ENUM('0','1') NULL DEFAULT '1',
+	`tipo` ENUM('1','2') NOT NULL,
+	`permicao` VARCHAR(256) NULL DEFAULT NULL,
+	`conf_valor` ENUM('1','0') NOT NULL DEFAULT '0',
+	`valor` DOUBLE NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	INDEX `idCat` (`idCat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Data exporting was unselected.
